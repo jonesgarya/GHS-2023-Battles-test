@@ -89,7 +89,7 @@ public class Battleship extends ConsoleProgram
                 int col = colInput;
 
                 // convert user direction string to ship direction
-                int dir;
+                int dir = UNSET;
                 String dirLetter = dirInput.substring(0,1);
                 if (dirLetter.equalsIgnoreCase("h"))
                 {
@@ -108,15 +108,13 @@ public class Battleship extends ConsoleProgram
 
                 ship.setDirection(dir);
                 ship.setLocation(row, col);
-                if(player.myGrid.legalShipLocation(ship))
+                if(player.getGrid().legalShipLocation(ship))
                 {
                     break;
                 }
             }
             
-            addShip(ship);
+            player.addShip(ship);
         }
     }
-
-
 }
